@@ -1,0 +1,18 @@
+:root {
+  --c-black: #1a1d21;
+  --c-blue: #3480f2;
+
+  --c-white: #fbfaf9;
+
+  --c-dark-grey: #77818e;
+  --c-normal-grey: #e5e8eb;
+  --c-light-grey: #f2f4f7;
+
+  --radius-s: 6px;
+  --radius-m: 10px;
+  --radius-l: 20px;
+  --radius-xl: 40px;
+  --radius-full: 1000px;
+
+  --shadow-l: 6px 6px 6px rgba(26, 29, 33, 0.2);
+}
