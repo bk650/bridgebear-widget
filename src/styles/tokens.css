@@ -27,6 +27,10 @@
 
   --Shadow_L: 6px 6px 6px rgba(26, 29, 33, 0.2);
 
+  /* Animation */
+
+--Animation_EI: all 400ms ease-in;
+
   /* Font */
 
   --FontFamily_Primary:

@@ -1,20 +1,14 @@
 import "./ProfileImg.css";
 
-interface ProfileImgProps {
-  src?: string;
-}
+import PlaceholderImg from "../../assets/lawyer/lawyer-placeholder.png";
 
-export function ProfileImg({
-  src,
-}: ProfileImgProps) {
+export function ProfileImg() {
   return (
     <div className="profile-img">
-      {src && (
-        <img
-          src={src}
-          alt="Profile"
-        />
-      )}
+      <img
+        src={PlaceholderImg}
+        alt="Lawyer"
+      />
     </div>
   );
 }

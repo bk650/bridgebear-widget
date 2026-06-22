@@ -10,7 +10,7 @@
 
   cursor: pointer;
 
-  transition: 400ms ease-in;
+  transition: var(--Animation_EI);
 }
 
 .answer:hover {
