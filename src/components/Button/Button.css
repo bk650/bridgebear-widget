@@ -1,0 +1,28 @@
+.button {
+  width: 100%;
+
+  padding: 14px 0;
+
+  border: none;
+  border-radius: var(--radius-full);
+
+  background: var(--c-blue);
+
+  color: var(--c-white);
+
+  cursor: pointer;
+}
+
+.button.t-subheading {
+  color: var(--c-white);
+}
+
+.button:disabled {
+  background: var(--c-light-grey);
+
+  border: 1px solid var(--c-normal-grey);
+
+  color: var(--c-dark-grey);
+
+  cursor: not-allowed;
+}

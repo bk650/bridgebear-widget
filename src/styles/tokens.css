@@ -1,18 +1,36 @@
 :root {
-  --c-black: #1a1d21;
-  --c-blue: #3480f2;
+  /* Color */
 
-  --c-white: #fbfaf9;
+  --C_Black: #1a1d21;
+  --C_Blue: #3480f2;
 
-  --c-dark-grey: #77818e;
-  --c-normal-grey: #e5e8eb;
-  --c-light-grey: #f2f4f7;
+  --C_White: #fbfaf9;
 
-  --radius-s: 6px;
-  --radius-m: 10px;
-  --radius-l: 20px;
-  --radius-xl: 40px;
-  --radius-full: 1000px;
+  --C_DarkGrey: #77818e;
+  --C_NormalGrey: #e5e8eb;
+  --C_LightGrey: #f2f4f7;
 
-  --shadow-l: 6px 6px 6px rgba(26, 29, 33, 0.2);
+  /* Radius */
+
+  --R_S: 6px;
+  --R_M: 10px;
+  --R_L: 20px;
+  --R_XL: 40px;
+  --R_F: 1000px;
+
+  /* Border */
+
+  --Border_NG: 1px solid var(--C_NormalGrey);
+  --Border_W: 1px solid var(--C_White);
+
+  /* Shadow */
+
+  --Shadow_L: 6px 6px 6px rgba(26, 29, 33, 0.2);
+
+  /* Font */
+
+  --FontFamily_Primary:
+    "Pretendard Variable",
+    "Pretendard",
+    sans-serif;
 }

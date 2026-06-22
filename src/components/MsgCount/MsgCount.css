@@ -1,0 +1,17 @@
+.msg-count {
+  width: 18px;
+  height: 18px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: var(--C_Blue);
+
+  border: var(--Border_W);
+  border-radius: var(--R_F);
+}
+
+.msg-count__text {
+  color: var(--C_White);
+}

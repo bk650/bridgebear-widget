@@ -1,0 +1,17 @@
+.widget-profile {
+  display: flex;
+}
+
+.widget-profile__wrapper {
+  position: relative;
+
+  width: 60px;
+  height: 60px;
+}
+
+.widget-profile__count {
+  position: absolute;
+
+  right: 0;
+  bottom: 0;
+}

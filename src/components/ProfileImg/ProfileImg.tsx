@@ -1,9 +1,20 @@
 import "./ProfileImg.css";
 
-export function ProfileImg() {
+interface ProfileImgProps {
+  src?: string;
+}
+
+export function ProfileImg({
+  src,
+}: ProfileImgProps) {
   return (
     <div className="profile-img">
-      IMG
+      {src && (
+        <img
+          src={src}
+          alt="Profile"
+        />
+      )}
     </div>
   );
 }

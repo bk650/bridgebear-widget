@@ -1,0 +1,22 @@
+.answer {
+  padding: 14px 16px;
+
+  border: var(--Border_NG);
+  border-radius: var(--R_F);
+
+  background: var(--C_LightGrey);
+
+  color: var(--C_Black);
+
+  cursor: pointer;
+
+  transition: 400ms ease-in;
+}
+
+.answer:hover {
+  background: var(--C_Blue);
+
+  border-color: transparent;
+
+  color: var(--C_White);
+}
