@@ -1,0 +1,13 @@
+.profile-description {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-description__name-rank {
+  color: var(--C_Black);
+}
+
+.profile-description__description {
+  color: var(--C_DarkGrey);
+}

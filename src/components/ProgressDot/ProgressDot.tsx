@@ -10,7 +10,7 @@ export function ProgressDot({
   return (
     <div
       className={`progress-dot ${
-        active ? "active" : ""
+        active ? "progress-dot--active" : ""
       }`}
     />
   );

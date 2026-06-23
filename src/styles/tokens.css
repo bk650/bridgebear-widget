@@ -1,17 +1,19 @@
 :root {
-  /* Color */
+  /* Font */
+  --FontFamily_Primary:
+    "Pretendard Variable",
+    "Pretendard",
+    sans-serif;
 
+  /* Color */
   --C_Black: #1a1d21;
   --C_Blue: #3480f2;
-
   --C_White: #fbfaf9;
-
   --C_DarkGrey: #77818e;
   --C_NormalGrey: #e5e8eb;
   --C_LightGrey: #f2f4f7;
 
   /* Radius */
-
   --R_S: 6px;
   --R_M: 10px;
   --R_L: 20px;
@@ -19,22 +21,12 @@
   --R_F: 1000px;
 
   /* Border */
-
   --Border_NG: 1px solid var(--C_NormalGrey);
   --Border_W: 1px solid var(--C_White);
 
   /* Shadow */
-
   --Shadow_L: 6px 6px 6px rgba(26, 29, 33, 0.2);
 
   /* Animation */
-
 --Animation_EI: all 400ms ease-in;
-
-  /* Font */
-
-  --FontFamily_Primary:
-    "Pretendard Variable",
-    "Pretendard",
-    sans-serif;
 }

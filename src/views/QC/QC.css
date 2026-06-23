@@ -1,0 +1,23 @@
+.qc {
+  width: 370px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 20px 40px 20px;
+  background: var(--C_White);
+  border: var(--Border_NG);
+  border-radius: var(--R_L);
+  box-shadow: var(--Shadow_L);
+}
+
+.qc__question-block {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.qc__answer-block {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0;
+  gap: 20px;
+}

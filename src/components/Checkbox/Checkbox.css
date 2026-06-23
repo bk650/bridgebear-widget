@@ -1,0 +1,23 @@
+.checkbox {
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: var(--C_LightGrey);
+  border: var(--Border_NG);
+  cursor: pointer;
+  transition: var(--Animation_EI);
+}
+
+.checkbox--checked {
+  background: var(--C_Blue);
+  border: none;
+}
+
+.checkbox__checkmark {
+  width: 12px;
+  height: 12px;
+  display: block;
+}

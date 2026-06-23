@@ -1,0 +1,40 @@
+.sc {
+  width: 370px;
+  height: 459px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  background: var(--C_White);
+  border: var(--Border_NG);
+  border-radius: var(--R_L);
+  box-shadow: var(--Shadow_L);
+}
+
+.sc__submitted {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sc__text {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 0 10px;
+}
+
+.sc__heading {
+  text-align: center;
+  color: var(--C_Black);
+}
+
+.sc__body {
+  text-align: center;
+  color: var(--C_Black);
+}

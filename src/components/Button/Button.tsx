@@ -8,7 +8,7 @@ interface ButtonProps {
 
 export function Button({
   text,
-  disabled,
+  disabled = false,
   onClick,
 }: ButtonProps) {
   return (

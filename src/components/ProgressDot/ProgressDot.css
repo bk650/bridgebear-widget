@@ -1,12 +1,11 @@
 .progress-dot {
   width: 8px;
   height: 8px;
-
-  border-radius: var(--radius-full);
-
-  background: var(--c-normal-grey);
+  border-radius: var(--R_F);
+  background: var(--C_NormalGrey);
+  transition: var(--Animation_EI);
 }
 
-.progress-dot.active {
-  background: var(--c-blue);
+.progress-dot--active {
+  background: var(--C_Blue);
 }

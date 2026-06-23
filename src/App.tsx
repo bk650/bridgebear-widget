@@ -1,31 +1,21 @@
-import { getVisitorId } from "./utils/visitor";
-import { useViewStore } from "./state/viewStore";
-import { WidgetProfile } from "./views/WidgetProfile/WidgetProfile";
+import { ViewEngine } from "./ViewEngine/ViewEngine";
+import { useViewStore } from "./State/ViewStore";
 
-function App() {
-  const visitorId = getVisitorId();
-
-  const { currentView, setCurrentView } = useViewStore();
+export default function App() {
+  const { currentView } =
+    useViewStore();
 
   return (
-    <div>
-      <h1>BridgeBear</h1>
-
-      <p>Visitor: {visitorId}</p>
-
-      <p>Current View: {currentView}</p>
-
-      {currentView === "WIDGET_PROFILE" && (
-        <WidgetProfile />
-      )}
-
-      <button
-        onClick={() => setCurrentView("FC")}
-      >
-        Start
-      </button>
+    <div
+      style={{
+        position: "fixed",
+        top: "200px",
+        right: "20px",
+      }}
+    >
+      <ViewEngine
+        currentView={currentView}
+      />
     </div>
   );
 }
-
-export default App;

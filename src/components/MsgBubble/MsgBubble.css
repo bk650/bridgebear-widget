@@ -1,0 +1,11 @@
+.msg-bubble {
+  width: fit-content;
+  padding: 8px 12px;
+  background: var(--C_LightGrey);
+  border: var(--Border_NG);
+  border-radius: var(--R_F);
+}
+
+.msg-bubble__text {
+  color: var(--C_Black);
+}

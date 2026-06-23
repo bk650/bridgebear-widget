@@ -1,0 +1,19 @@
+.text-input {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-bottom: 4px;
+  border-bottom: var(--Border_NG);
+}
+
+.text-input__label {
+  color: var(--C_DarkGrey);
+}
+
+.text-input__value {
+  color: var(--C_Black);
+  border: none;
+  outline: none;
+  background: transparent;
+}

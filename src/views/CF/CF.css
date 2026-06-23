@@ -1,0 +1,39 @@
+.cf {
+  width: 370px;
+  display: flex;
+  flex-direction: column;
+  padding: 40px 20px;
+  background: var(--C_White);
+  border: var(--Border_NG);
+  border-radius: var(--R_L);
+  box-shadow: var(--Shadow_L);
+}
+
+.cf__question-block {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 20px;
+}
+
+.cf__text-input-block {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cf__check-block {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 20px 0 40px 0;
+}
+
+.cf__check-text {
+  color: var(--C_Black);
+}
+
+.cf__policy-link {
+  color: var(--C_Black);
+
+  text-decoration: underline;
+}

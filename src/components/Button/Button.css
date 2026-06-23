@@ -1,28 +1,17 @@
 .button {
   width: 100%;
-
   padding: 14px 0;
-
   border: none;
-  border-radius: var(--radius-full);
-
-  background: var(--c-blue);
-
-  color: var(--c-white);
-
+  border-radius: var(--R_F);
+  background: var(--C_Blue);
+  color: var(--C_White);
   cursor: pointer;
-}
-
-.button.t-subheading {
-  color: var(--c-white);
+  transition: var(--Animation_EI);
 }
 
 .button:disabled {
-  background: var(--c-light-grey);
-
-  border: 1px solid var(--c-normal-grey);
-
-  color: var(--c-dark-grey);
-
+  background: var(--C_LightGrey);
+  border: var(--Border_NG);
+  color: var(--C_DarkGrey);
   cursor: not-allowed;
 }

@@ -1,0 +1,7 @@
+.comment {
+  width: 100%;
+}
+
+.comment__text {
+  color: var(--C_Black);
+}
