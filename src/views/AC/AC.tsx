@@ -19,6 +19,7 @@ export function AC() {
     selectedAnswerText,
     setCurrentStep,
     setCurrentView,
+    closeWidget,
   } = useViewStore();
 
   const question = MockQuestions.find(
@@ -37,21 +38,24 @@ export function AC() {
 
   return (
     <div className="ac">
-      <Navigation activeStep={currentStep +1}/>
+      <Navigation 
+        activeStep={currentStep + 1}
+        onClose={closeWidget}
+      />
 
       <div className="ac__question-block">
         <Question
           text={
             question.QuestionText
           }
-        />
+      />
 
         <Answer
           text={
             selectedAnswerText
           }
           disabled
-        />
+      />
       </div>
 
       <div className="ac__comment-block">
@@ -64,27 +68,23 @@ export function AC() {
               lawyer.Description
             }
           />
+        
         </div>
-
         <Comment
            text={
             question.CommentText ?? ""
             }
           />
+      
       </div>
-
       <Button
-        text={
-          widgetSetting.ButtonText_AC
-        }
+        text={widgetSetting.ButtonText_AC}
         onClick={() => {
           if (currentStep < 3) {
-            setCurrentStep(
-              currentStep + 1
-            );
+            setCurrentStep(currentStep + 1);
             setCurrentView("QC");
           } else {
-            setCurrentStep (4);
+            setCurrentStep(4);
             setCurrentView("QC");
           }
         }}

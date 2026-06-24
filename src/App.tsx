@@ -2,6 +2,7 @@ import { ViewEngine } from "./ViewEngine/ViewEngine";
 import { useViewStore } from "./State/ViewStore";
 
 export default function App() {
+  
   const { currentView } =
     useViewStore();
 

@@ -1,10 +1,28 @@
+import { useEffect }  from "react"; 
 import "./SC.css";
 import { MockWidgetSettings } from "../../Mock/MockWidgetSettings";
 import Submitted from "../../Assets/Common/Submitted.png";
+import { useViewStore } from "../../State/ViewStore";
+
 
 export function SC() {
+  
   const widgetSetting =
     MockWidgetSettings[0];
+
+  const { setCurrentView } = useViewStore();
+  
+  const duration: number = 2;
+
+  useEffect(() => {
+  const timer = setTimeout(() => {
+    setCurrentView(
+      "WidgetProfile"
+    );
+  }, duration * 1000);
+
+  return () => clearTimeout(timer);
+}, [duration, setCurrentView]);
 
   return (
     <div className="sc">

@@ -18,16 +18,14 @@ export function WidgetProfile() {
 
   return (
     <div
-      className="widget-profile"
-      onClick={() =>
-        setCurrentView("FC")
-      }
+      className="widget-profile__wrapper"
+      onClick={() => setCurrentView("FC")}
     >
       <ProfileImg />
 
-      <MsgCount
-        count={msgCount}
-      />
+      <div className="widget-profile__count">
+        <MsgCount count={msgCount} />
+      </div>
     </div>
-  );
+  )
 }

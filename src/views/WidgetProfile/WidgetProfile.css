@@ -1,11 +1,8 @@
-.widget-profile {
-  display: flex;
-  cursor: pointer;
-}
 .widget-profile__wrapper {
   position: relative;
   width: 60px;
   height: 60px;
+  cursor: pointer;
 }
 
 .widget-profile__count {

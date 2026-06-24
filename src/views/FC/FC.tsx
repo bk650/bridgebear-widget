@@ -10,9 +10,11 @@ import { useViewStore } from "../../State/ViewStore";
 export function FC() {
   
   const {
+  currentStep,
   setCurrentView,
   setCurrentStep,
   setScenarioSelector,
+  closeWidget,
 } = useViewStore();
 
   const question = MockQuestions.find(
@@ -37,7 +39,10 @@ export function FC() {
 
   return (
     <div className="fc">
-      <Navigation activeStep={1} />
+      <Navigation 
+        activeStep={currentStep + 1} 
+        onClose={closeWidget}
+      />
 
       <div className="fc__question-block">
         <ProfileImg />

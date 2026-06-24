@@ -14,6 +14,7 @@ const {
   currentStep,
   setCurrentView,
   setSelectedAnswerText,
+  closeWidget,
 } = useViewStore();
 
 const question =
@@ -43,7 +44,10 @@ const question =
 
   return (
     <div className="qc">
-      <Navigation activeStep={currentStep +1}/>
+      <Navigation 
+        activeStep={currentStep + 1}
+        onClose={closeWidget}
+      />
 
       <div className="qc__question-block">
         <ProfileImg />
