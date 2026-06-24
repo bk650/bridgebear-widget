@@ -2,22 +2,22 @@
   width: 18px;
   height: 18px;
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
   padding: 0;
   background: var(--C_LightGrey);
   border: var(--Border_NG);
   cursor: pointer;
-  transition: var(--Animation_EI);
-}
-
-.checkbox--checked {
-  background: var(--C_Blue);
-  border: none;
+  transition: var(--Animation_INST);
 }
 
 .checkbox__checkmark {
   width: 12px;
   height: 12px;
   display: block;
+}
+
+.checkbox--checked {
+  background: var(--C_Blue);
+  border: none;
 }

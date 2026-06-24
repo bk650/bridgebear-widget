@@ -11,6 +11,7 @@ export function Answer({
   disabled = false,
   onClick,
 }: AnswerProps) {
+  
   return (
     <button
       className={`answer ${

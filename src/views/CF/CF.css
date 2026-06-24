@@ -24,6 +24,7 @@
 .cf__check-block {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 10px;
   padding: 20px 0 40px 0;
 }
@@ -34,6 +35,5 @@
 
 .cf__policy-link {
   color: var(--C_Black);
-
   text-decoration: underline;
 }

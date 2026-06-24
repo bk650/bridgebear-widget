@@ -1,5 +1,4 @@
 import "./Checkbox.css";
-
 import CheckmarkImg from "../../Assets/Common/Checkmark.png";
 
 interface CheckboxProps {
@@ -11,6 +10,7 @@ export function Checkbox({
   checked,
   onChange,
 }: CheckboxProps) {
+  
   return (
     <button
       className={`checkbox ${

@@ -7,6 +7,7 @@ import { Button } from "../../Components/Button/Button";
 import { MockWidgetSettings } from "../../Mock/MockWidgetSettings";
 
 export function CF() {
+  
   const widgetSetting =
     MockWidgetSettings[0];
 

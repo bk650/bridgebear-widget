@@ -4,7 +4,6 @@ import {
   useState,
   type ReactNode,
 } from "react";
-
 import type { ViewState } from "./ViewState";
 
 interface ViewStoreType {

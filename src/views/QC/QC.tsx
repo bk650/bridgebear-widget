@@ -17,14 +17,19 @@ const {
 } = useViewStore();
 
 const question =
-  MockQuestions.find(
-    (question) =>
-      question.Type ===
-        scenarioSelector &&
-      question.SB_Order ===
-        currentStep
-  )!;
-
+  currentStep === 4
+    ? MockQuestions.find(
+      (question) => 
+          question.Type === "EC"
+      )!
+      : MockQuestions.find(
+        (questions) => 
+          questions.Type ===
+            scenarioSelector &&
+          questions.SB_Order ===
+            currentStep
+        )!;
+  
   const answers = MockAnswers
   .filter(
     (answer) =>
@@ -38,7 +43,7 @@ const question =
 
   return (
     <div className="qc">
-      <Navigation />
+      <Navigation activeStep={currentStep +1}/>
 
       <div className="qc__question-block">
         <ProfileImg />
@@ -51,14 +56,18 @@ const question =
       <div className="qc__answer-block">
         {answers.map((answer) => (
           <Answer
-            key={answer.QID}
+            key={`${answer.QID}-${answer.Order}`}
             text={answer.AnswerText}
             onClick={() => {
               setSelectedAnswerText(
                 answer.AnswerText
               );
-              
-              setCurrentView("AC");
+
+              if (currentStep === 4) {
+                setCurrentView("CF");
+              } else {
+                setCurrentView("AC");
+              }        
             }}
           />
         ))}

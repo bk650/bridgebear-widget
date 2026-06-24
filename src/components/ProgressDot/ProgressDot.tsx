@@ -7,6 +7,7 @@ interface ProgressDotProps {
 export function ProgressDot({
   active = false,
 }: ProgressDotProps) {
+  
   return (
     <div
       className={`progress-dot ${

@@ -12,6 +12,7 @@ import { MockWidgetSettings } from "../../Mock/MockWidgetSettings";
 import { useViewStore } from "../../State/ViewStore";
 
 export function AC() {
+  
   const {
     scenarioSelector,
     currentStep,
@@ -36,7 +37,7 @@ export function AC() {
 
   return (
     <div className="ac">
-      <Navigation />
+      <Navigation activeStep={currentStep +1}/>
 
       <div className="ac__question-block">
         <Question
@@ -77,20 +78,14 @@ export function AC() {
           widgetSetting.ButtonText_AC
         }
         onClick={() => {
-          if (
-            currentStep < 3
-          ) {
+          if (currentStep < 3) {
             setCurrentStep(
               currentStep + 1
             );
-
-            setCurrentView(
-              "QC"
-            );
+            setCurrentView("QC");
           } else {
-            setCurrentView(
-              "CF"
-            );
+            setCurrentStep (4);
+            setCurrentView("QC");
           }
         }}
       />

@@ -7,6 +7,7 @@ interface MsgBubbleProps {
 export function MsgBubble({
   text,
 }: MsgBubbleProps) {
+  
   return (
     <div className="msg-bubble">
       <span className="msg-bubble__text t-body">

@@ -7,6 +7,7 @@ interface CommentProps {
 export function Comment({
   text,
 }: CommentProps) {
+  
   return (
     <div className="comment">
       <div className="comment__text t-body">

@@ -1,12 +1,11 @@
-import { WidgetBubble } from "../Views/WidgetBubble/WidgetBubble";
-import { WidgetProfile } from "../Views/WidgetProfile/WidgetProfile";
 import { FC } from "../Views/FC/FC";
 import { QC } from "../Views/QC/QC";
 import { AC } from "../Views/AC/AC";
 import { CF } from "../Views/CF/CF";
 import { SC } from "../Views/SC/SC";
-
 import type { ViewState } from "../State/ViewState";
+import { WidgetBubble } from "../Views/WidgetBubble/WidgetBubble";
+import { WidgetProfile } from "../Views/WidgetProfile/WidgetProfile";
 
 interface ViewEngineProps {
   currentView: ViewState;

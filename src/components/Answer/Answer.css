@@ -1,35 +1,31 @@
 .answer {
   width: fit-content;
   display: flex;
-  align-items: center;
-  justify-content: center;
   padding: 14px 16px;
   background: var(--C_LightGrey);
   border: var(--Border_NG);
   border-radius: var(--R_F);
-  cursor: pointer;
   transition: var(--Animation_EI);
+  cursor: pointer;
 }
 
 .answer__text {
   color: var(--C_Black);
 }
 
+.answer--disabled {
+  cursor: default;
+
+  .answer__text {
+  color: var(--C_DarkGrey);
+  } 
+}
+
 .answer:not(.answer--disabled):hover {
   background: var(--C_Blue);
   border: 1px solid transparent;
-}
 
-.answer:not(.answer--disabled):hover
   .answer__text {
   color: var(--C_White);
-}
-
-.answer--disabled {
-  cursor: default;
-}
-
-.answer--disabled
-  .answer__text {
-  color: var(--C_DarkGrey);
+  }
 }

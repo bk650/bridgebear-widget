@@ -9,6 +9,7 @@ export function ProfileDescription({
   nameRank,
   description,
 }: ProfileDescriptionProps) {
+  
   return (
     <div className="profile-description">
       <div className="profile-description__name-rank t-tag">

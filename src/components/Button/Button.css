@@ -2,8 +2,8 @@
   width: 100%;
   padding: 14px 0;
   border: none;
-  border-radius: var(--R_F);
   background: var(--C_Blue);
+  border-radius: var(--R_F);
   color: var(--C_White);
   cursor: pointer;
   transition: var(--Animation_EI);

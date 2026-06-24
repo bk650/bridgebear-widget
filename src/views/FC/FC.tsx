@@ -37,7 +37,7 @@ export function FC() {
 
   return (
     <div className="fc">
-      <Navigation />
+      <Navigation activeStep={1} />
 
       <div className="fc__question-block">
         <ProfileImg />
@@ -58,7 +58,7 @@ export function FC() {
             >
               {row.map((answer) => (
                 <Answer
-                  key={answer.QID}
+                  key={`${answer.QID}-${answer.Order}`}
                   text={
                     answer.AnswerText
                   }

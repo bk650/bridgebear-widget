@@ -7,6 +7,7 @@ interface MsgCountProps {
 export function MsgCount({
   count,
 }: MsgCountProps) {
+  
   return (
     <div className="msg-count">
       <span className="msg-count__text t-note">
