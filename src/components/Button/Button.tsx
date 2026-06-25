@@ -8,10 +8,11 @@ interface ButtonProps {
 
 export function Button({
   text,
-  disabled = false,
   onClick,
+  disabled, 
 }: ButtonProps) {
-  return (
+  
+return (
     <button
       className="button t-subheading"
       disabled={disabled}

@@ -12,7 +12,7 @@ export function SC() {
 
   const { setCurrentView } = useViewStore();
   
-  const duration: number = 2;
+  const duration: number = 6;
 
   useEffect(() => {
   const timer = setTimeout(() => {

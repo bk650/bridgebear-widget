@@ -5,9 +5,9 @@ import { TextInput } from "../../Components/TextInput/TextInput";
 import { Checkbox } from "../../Components/Checkbox/Checkbox";
 import { Button } from "../../Components/Button/Button";
 import { MockWidgetSettings } from "../../Mock/MockWidgetSettings";
+import { useViewStore } from "../../State/ViewStore";
 
 export function CF() {
-  
   const widgetSetting =
     MockWidgetSettings[0];
 
@@ -22,6 +22,36 @@ export function CF() {
 
   const [checked, setChecked] =
     useState(false);
+
+  const isValidPhone = (
+      phone: string
+    ) => {
+      const numbers = 
+        phone.replace(/\D/g, "");
+
+      return numbers.length === 11;
+    };  
+  
+  const isValidEmail = (
+    email: string
+  ) => {
+    if (email === "") {
+      return true;
+    }
+
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(
+      email
+    );
+  };
+
+  const { setCurrentView } =
+  useViewStore();
+
+  const isButtonEnabled =
+    name.trim() !== "" &&
+    isValidPhone (phone) &&
+    isValidEmail(email) &&
+    checked;
 
   return (
     <div className="cf">
@@ -45,8 +75,9 @@ export function CF() {
         />
 
         <TextInput
-          label="연락처"
+          label="휴대폰 번호 (숫자만 입력)"
           value={phone}
+          type="tel"
           onChange={(e) =>
             setPhone(
               e.target.value
@@ -57,6 +88,7 @@ export function CF() {
         <TextInput
           label="이메일 (선택)"
           value={email}
+          type="email"
           onChange={(e) =>
             setEmail(
               e.target.value
@@ -76,20 +108,24 @@ export function CF() {
         />
 
         <span className="cf__check-text t-body">
-            개인정보 수집 및 이용 동의 (
-            <a
-                href="#"
-                className="cf__policy-link"
-            >
-                개인정보처리방침
-            </a>
-            )
+          개인정보 수집 및 이용 동의 (
+          <a
+            href="#"
+            className="cf__policy-link"
+          >
+            개인정보처리방침
+          </a>
+          )
         </span>
       </div>
 
       <Button
         text={
           widgetSetting.ButtonText_CF
+        }
+        disabled={!isButtonEnabled}
+        onClick={() =>
+          setCurrentView("SC")
         }
       />
     </div>
