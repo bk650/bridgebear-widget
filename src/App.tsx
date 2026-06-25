@@ -21,7 +21,7 @@ function AppContent() {
     useWidgetSettingStore();
 
   useEffect(() => {
-    loadWidgetSetting("bridgebear");
+  loadWidgetSetting("bridgebear");
   }, [loadWidgetSetting]);
 
   return (

@@ -2,6 +2,7 @@ import {
   createContext,
   useContext,
   useState,
+  useCallback,
   type ReactNode,
 } from "react";
 
@@ -35,14 +36,14 @@ export function WidgetSettingStoreProvider({
   const [widgetSetting, setWidgetSetting] =
     useState<WidgetSetting | null>(null);
 
-  async function loadWidgetSetting(
-    slug: string
-  ) {
-    const data =
-      await getWidgetSetting(slug);
-
-    setWidgetSetting(data);
-  }
+  const loadWidgetSetting = useCallback(
+    async (slug: string) => {
+      const data =
+        await getWidgetSetting(slug);
+      setWidgetSetting(data);
+    },
+    []
+  );
 
   return (
     <WidgetSettingStoreContext.Provider
