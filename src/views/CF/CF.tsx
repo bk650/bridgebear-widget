@@ -4,12 +4,17 @@ import { Question } from "../../Components/Question/Question";
 import { TextInput } from "../../Components/TextInput/TextInput";
 import { Checkbox } from "../../Components/Checkbox/Checkbox";
 import { Button } from "../../Components/Button/Button";
-import { MockWidgetSettings } from "../../Mock/MockWidgetSettings";
+import { useWidgetSettingStore } from "../../State/WidgetSettingStore";
 import { useViewStore } from "../../State/ViewStore";
 
 export function CF() {
-  const widgetSetting =
-    MockWidgetSettings[0];
+  
+  const { widgetSetting } =
+    useWidgetSettingStore();
+
+  if (!widgetSetting) {
+    return null;
+  }
 
   const [name, setName] =
     useState("");

@@ -2,13 +2,17 @@ import { useEffect } from "react";
 import "./WidgetBubble.css";
 import { MsgBubble } from "../../Components/MsgBubble/MsgBubble";
 import { ProfileImg } from "../../Components/ProfileImg/ProfileImg";
-import { MockWidgetSettings } from "../../Mock/MockWidgetSettings";
 import { useViewStore } from "../../State/ViewStore";
+import { useWidgetSettingStore } from "../../State/WidgetSettingStore";
 
 export function WidgetBubble() {
   
-  const widgetSetting =
-    MockWidgetSettings[0];
+  const { widgetSetting } =
+    useWidgetSettingStore();
+
+  if (!widgetSetting) {
+    return null;
+  }
 
   const { setCurrentView } =
     useViewStore();

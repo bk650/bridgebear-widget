@@ -1,14 +1,18 @@
 import { useEffect }  from "react"; 
 import "./SC.css";
-import { MockWidgetSettings } from "../../Mock/MockWidgetSettings";
+import { useWidgetSettingStore } from "../../State/WidgetSettingStore";
 import Submitted from "../../Assets/Common/Submitted.png";
 import { useViewStore } from "../../State/ViewStore";
 
 
 export function SC() {
   
-  const widgetSetting =
-    MockWidgetSettings[0];
+  const { widgetSetting } =
+    useWidgetSettingStore();
+
+  if (!widgetSetting) {
+    return null;
+  }
 
   const { setCurrentView } = useViewStore();
   

@@ -1,12 +1,17 @@
 import "./WidgetProfile.css";
 import { ProfileImg } from "../../Components/ProfileImg/ProfileImg";
 import { MsgCount } from "../../Components/MsgCount/MsgCount";
-import { MockWidgetSettings } from "../../Mock/MockWidgetSettings";
+import { useWidgetSettingStore } from "../../State/WidgetSettingStore";
 import { useViewStore } from "../../State/ViewStore";
 
 export function WidgetProfile() {
-  const widgetSetting =
-    MockWidgetSettings[0];
+  
+  const { widgetSetting } =
+    useWidgetSettingStore();
+
+  if (!widgetSetting) {
+    return null;
+  }
 
   const { setCurrentView } =
     useViewStore();

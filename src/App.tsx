@@ -1,10 +1,28 @@
+import { useEffect } from "react";
 import { ViewEngine } from "./ViewEngine/ViewEngine";
 import { useViewStore } from "./State/ViewStore";
+import {
+  WidgetSettingStoreProvider,
+  useWidgetSettingStore,
+} from "./State/WidgetSettingStore";
 
 export default function App() {
-  
-  const { currentView } =
-    useViewStore();
+  return (
+    <WidgetSettingStoreProvider>
+      <AppContent />
+    </WidgetSettingStoreProvider>
+  );
+}
+
+function AppContent() {
+  const { currentView } = useViewStore();
+
+  const { loadWidgetSetting } =
+    useWidgetSettingStore();
+
+  useEffect(() => {
+    loadWidgetSetting("bridgebear");
+  }, [loadWidgetSetting]);
 
   return (
     <div
@@ -14,9 +32,7 @@ export default function App() {
         right: "20px",
       }}
     >
-      <ViewEngine
-        currentView={currentView}
-      />
+      <ViewEngine currentView={currentView} />
     </div>
   );
 }

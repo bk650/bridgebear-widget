@@ -8,7 +8,7 @@ import { Comment } from "../../Components/Comment/Comment";
 import { Button } from "../../Components/Button/Button";
 import { MockQuestions } from "../../Mock/MockQuestions";
 import { MockLawyers } from "../../Mock/MockLawyers";
-import { MockWidgetSettings } from "../../Mock/MockWidgetSettings";
+import { useWidgetSettingStore } from "../../State/WidgetSettingStore";
 import { useViewStore } from "../../State/ViewStore";
 
 export function AC() {
@@ -33,8 +33,12 @@ export function AC() {
   const lawyer =
     MockLawyers[0];
 
-  const widgetSetting =
-    MockWidgetSettings[0];
+  const { widgetSetting } =
+    useWidgetSettingStore();
+
+  if (!widgetSetting) {
+    return null;
+  }
 
   return (
     <div className="ac">
