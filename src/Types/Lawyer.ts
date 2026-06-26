@@ -1,4 +1,5 @@
 export interface Lawyer {
+  
   Name: string;
 
   Rank: string;
@@ -15,7 +16,11 @@ export interface Lawyer {
 
   Slug: string[]; // Airtable lookup field
 
+  Assigned_Widget?: boolean;
+
   Assigned_Question: string[]; // Airtable linked record ids
+
+  Assigned_Question_QID: string[]; // Airtable Lookup field
 
   Assigned_Question_Count: number; // Airtable formula field
 }

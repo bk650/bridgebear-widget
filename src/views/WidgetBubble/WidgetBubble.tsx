@@ -4,18 +4,28 @@ import { MsgBubble } from "../../components/MsgBubble/MsgBubble";
 import { ProfileImg } from "../../components/ProfileImg/ProfileImg";
 import { useViewStore } from "../../state/ViewStore";
 import { useWidgetSettingStore } from "../../state/WidgetSettingStore";
+import { useLawyerStore } from "../../state/LawyerStore";
 
 export function WidgetBubble() {
   
   const { widgetSetting } =
     useWidgetSettingStore();
 
+  const { lawyers } =
+    useLawyerStore();
+
+  const { setCurrentView } =
+    useViewStore();
+
   if (!widgetSetting) {
     return null;
   }
 
-  const { setCurrentView } =
-    useViewStore();
+  const widgetLawyer =
+    lawyers.find(
+      lawyer =>
+        lawyer.Assigned_Widget
+    );
 
   const duration =
     widgetSetting.WidgetBubble_Duration;
@@ -25,10 +35,14 @@ export function WidgetBubble() {
       setCurrentView(
         "WidgetProfile"
       );
-    }, duration *1000);
+    }, duration * 1000);
 
-    return () => clearTimeout(timer);
-  }, [duration, setCurrentView]);
+    return () =>
+      clearTimeout(timer);
+  }, [
+    duration,
+    setCurrentView,
+  ]);
 
   return (
     <div
@@ -51,7 +65,12 @@ export function WidgetBubble() {
         />
       )}
 
-      <ProfileImg />
+      <ProfileImg
+        imageUrl={
+          widgetLawyer
+            ?.ProfileImg?.[0]?.url
+        }
+      />
     </div>
   );
 }

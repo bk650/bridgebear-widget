@@ -7,7 +7,9 @@ import { ProfileDescription } from "../../components/ProfileDescription/ProfileD
 import { Comment } from "../../components/Comment/Comment";
 import { Button } from "../../components/Button/Button";
 import { MockQuestions } from "../../mock/MockQuestions";
-import { MockLawyers } from "../../mock/MockLawyers";
+import {
+  useLawyerStore,
+} from "../../state/LawyerStore";
 import { useWidgetSettingStore } from "../../state/WidgetSettingStore";
 import { useViewStore } from "../../state/ViewStore";
 
@@ -30,13 +32,19 @@ export function AC() {
         currentStep
   )!;
 
+  const { lawyers } =
+  useLawyerStore();
+
   const lawyer =
-    MockLawyers[0];
+  lawyers[0];
 
   const { widgetSetting } =
     useWidgetSettingStore();
 
-  if (!widgetSetting) {
+  if (
+  !widgetSetting ||
+  !lawyer
+  ) {
     return null;
   }
 

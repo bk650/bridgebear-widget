@@ -6,7 +6,7 @@ import {
   type ReactNode,
 } from "react";
 
-import { getWidgetSetting } from "../api/widget";
+import { getWidgetSetting } from "../api/Widget";
 import type { WidgetSetting } from "../types/WidgetSetting";
 
 interface WidgetSettingStoreType {
