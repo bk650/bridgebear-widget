@@ -1,5 +1,5 @@
 import "./Checkbox.css";
-import CheckmarkImg from "../../Assets/Common/Checkmark.png";
+import CheckmarkImg from "../../assets/Common/Checkmark.png";
 
 interface CheckboxProps {
   checked: boolean;

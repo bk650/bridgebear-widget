@@ -1,11 +1,11 @@
-import { FC } from "../Views/FC/FC";
-import { QC } from "../Views/QC/QC";
-import { AC } from "../Views/AC/AC";
-import { CF } from "../Views/CF/CF";
-import { SC } from "../Views/SC/SC";
-import type { ViewState } from "../State/ViewState";
-import { WidgetBubble } from "../Views/WidgetBubble/WidgetBubble";
-import { WidgetProfile } from "../Views/WidgetProfile/WidgetProfile";
+import { FC } from "../views/FC/FC";
+import { QC } from "../views/QC/QC";
+import { AC } from "../views/AC/AC";
+import { CF } from "../views/CF/CF";
+import { SC } from "../views/SC/SC";
+import type { ViewState } from "../state/ViewState";
+import { WidgetBubble } from "../views/WidgetBubble/WidgetBubble";
+import { WidgetProfile } from "../views/WidgetProfile/WidgetProfile";
 
 interface ViewEngineProps {
   currentView: ViewState;

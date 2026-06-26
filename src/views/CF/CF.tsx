@@ -1,11 +1,11 @@
 import "./CF.css";
 import { useState } from "react";
-import { Question } from "../../Components/Question/Question";
-import { TextInput } from "../../Components/TextInput/TextInput";
-import { Checkbox } from "../../Components/Checkbox/Checkbox";
-import { Button } from "../../Components/Button/Button";
-import { useWidgetSettingStore } from "../../State/WidgetSettingStore";
-import { useViewStore } from "../../State/ViewStore";
+import { Question } from "../../components/Question/Question";
+import { TextInput } from "../../components/TextInput/TextInput";
+import { Checkbox } from "../../components/Checkbox/Checkbox";
+import { Button } from "../../components/Button/Button";
+import { useWidgetSettingStore } from "../../state/WidgetSettingStore";
+import { useViewStore } from "../../state/ViewStore";
 
 export function CF() {
   

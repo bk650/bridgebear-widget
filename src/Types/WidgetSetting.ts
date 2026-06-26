@@ -1,33 +1,30 @@
 export interface WidgetSetting {
-  Client: string[];
+  
+  // Basic
+  Number: number;
+  Client: string[]; // Airtable linked record ids
+  Slug: string;
 
-  WidgetBubble_Duration: number;
-
-  SC_Heading: string;
-
-  MobileOffset_X: number;
-
+  // Widget Position
   DesktopOffset_X: number;
-
-  CF_Url: string;
-
-  BubbleMsg_2: string;
-
-  SC_Body: string;
-
   DesktopOffset_Y: number;
-
-  ButtonText_CF: string;
-
+  MobileOffset_X: number;
   MobileOffset_Y: number;
 
-  ButtonText_AC: string;
-
+  // WidgetBubble
+  WidgetBubble_Duration: number;
   BubbleMsg_1: string;
+  BubbleMsg_2?: string;
 
-  Slug: string[];
+  // Buttons
+  ButtonText_AC: string;
+  ButtonText_CF: string;
 
-  Number: number;
-
+  // Contact Form
   CF_QuestionText: string;
+  CF_Url: string;
+
+  // Submit Complete
+  SC_Heading: string;
+  SC_Body: string;
 }

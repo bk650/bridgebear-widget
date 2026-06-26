@@ -1,15 +1,15 @@
 import "./AC.css";
-import { Navigation } from "../../Components/Navigation/Navigation";
-import { Question } from "../../Components/Question/Question";
-import { Answer } from "../../Components/Answer/Answer";
-import { ProfileImg } from "../../Components/ProfileImg/ProfileImg";
-import { ProfileDescription } from "../../Components/ProfileDescription/ProfileDescription";
-import { Comment } from "../../Components/Comment/Comment";
-import { Button } from "../../Components/Button/Button";
-import { MockQuestions } from "../../Mock/MockQuestions";
-import { MockLawyers } from "../../Mock/MockLawyers";
-import { useWidgetSettingStore } from "../../State/WidgetSettingStore";
-import { useViewStore } from "../../State/ViewStore";
+import { Navigation } from "../../components/Navigation/Navigation";
+import { Question } from "../../components/Question/Question";
+import { Answer } from "../../components/Answer/Answer";
+import { ProfileImg } from "../../components/ProfileImg/ProfileImg";
+import { ProfileDescription } from "../../components/ProfileDescription/ProfileDescription";
+import { Comment } from "../../components/Comment/Comment";
+import { Button } from "../../components/Button/Button";
+import { MockQuestions } from "../../mock/MockQuestions";
+import { MockLawyers } from "../../mock/MockLawyers";
+import { useWidgetSettingStore } from "../../state/WidgetSettingStore";
+import { useViewStore } from "../../state/ViewStore";
 
 export function AC() {
   

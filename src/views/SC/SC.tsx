@@ -1,8 +1,8 @@
 import { useEffect }  from "react"; 
 import "./SC.css";
-import { useWidgetSettingStore } from "../../State/WidgetSettingStore";
-import Submitted from "../../Assets/Common/Submitted.png";
-import { useViewStore } from "../../State/ViewStore";
+import { useWidgetSettingStore } from "../../state/WidgetSettingStore";
+import Submitted from "../../assets/Common/Submitted.png";
+import { useViewStore } from "../../state/ViewStore";
 
 
 export function SC() {

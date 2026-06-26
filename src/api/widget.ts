@@ -1,4 +1,4 @@
-import type { WidgetSetting } from "../Types/WidgetSetting";
+import type { WidgetSetting } from "../types/WidgetSetting";
 
 const API_URL = "https://bridgebear-api.bk-025.workers.dev";
 

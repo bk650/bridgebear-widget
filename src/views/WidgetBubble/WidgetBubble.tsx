@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import "./WidgetBubble.css";
-import { MsgBubble } from "../../Components/MsgBubble/MsgBubble";
-import { ProfileImg } from "../../Components/ProfileImg/ProfileImg";
-import { useViewStore } from "../../State/ViewStore";
-import { useWidgetSettingStore } from "../../State/WidgetSettingStore";
+import { MsgBubble } from "../../components/MsgBubble/MsgBubble";
+import { ProfileImg } from "../../components/ProfileImg/ProfileImg";
+import { useViewStore } from "../../state/ViewStore";
+import { useWidgetSettingStore } from "../../state/WidgetSettingStore";
 
 export function WidgetBubble() {
   

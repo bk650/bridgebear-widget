@@ -1,5 +1,5 @@
 import "./ProfileImg.css";
-import PlaceholderImg from "../../Assets/Lawyer/LawyerPlaceholder.png";
+import PlaceholderImg from "../../assets/Lawyer/LawyerPlaceholder.png";
 
 export function ProfileImg() {
   return (

@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { ViewEngine } from "./ViewEngine/ViewEngine";
-import { useViewStore } from "./State/ViewStore";
+import { useViewStore } from "./state/ViewStore";
 import {
   WidgetSettingStoreProvider,
   useWidgetSettingStore,
-} from "./State/WidgetSettingStore";
+} from "./state/WidgetSettingStore";
 
 export default function App() {
   return (

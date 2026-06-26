@@ -1,8 +1,8 @@
 import "./WidgetProfile.css";
-import { ProfileImg } from "../../Components/ProfileImg/ProfileImg";
-import { MsgCount } from "../../Components/MsgCount/MsgCount";
-import { useWidgetSettingStore } from "../../State/WidgetSettingStore";
-import { useViewStore } from "../../State/ViewStore";
+import { ProfileImg } from "../../components/ProfileImg/ProfileImg";
+import { MsgCount } from "../../components/MsgCount/MsgCount";
+import { useWidgetSettingStore } from "../../state/WidgetSettingStore";
+import { useViewStore } from "../../state/ViewStore";
 
 export function WidgetProfile() {
   

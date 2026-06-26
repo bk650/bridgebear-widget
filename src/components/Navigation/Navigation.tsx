@@ -1,5 +1,5 @@
 import "./Navigation.css";
-import CloseButtonImg from "../../Assets/Common/CloseButton.png";
+import CloseButtonImg from "../../assets/Common/CloseButton.png";
 import { ProgressDot } from "../ProgressDot/ProgressDot";
 
 interface NavigationProps {

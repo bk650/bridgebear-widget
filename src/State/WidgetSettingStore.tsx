@@ -7,7 +7,7 @@ import {
 } from "react";
 
 import { getWidgetSetting } from "../api/widget";
-import type { WidgetSetting } from "../Types/WidgetSetting";
+import type { WidgetSetting } from "../types/WidgetSetting";
 
 interface WidgetSettingStoreType {
   widgetSetting: WidgetSetting | null;

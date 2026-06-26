@@ -1,11 +1,11 @@
 import "./FC.css";
-import { Navigation } from "../../Components/Navigation/Navigation";
-import { ProfileImg } from "../../Components/ProfileImg/ProfileImg";
-import { Question } from "../../Components/Question/Question";
-import { Answer } from "../../Components/Answer/Answer";
-import { MockQuestions } from "../../Mock/MockQuestions";
-import { MockAnswers } from "../../Mock/MockAnswers";
-import { useViewStore } from "../../State/ViewStore";
+import { Navigation } from "../../components/Navigation/Navigation";
+import { ProfileImg } from "../../components/ProfileImg/ProfileImg";
+import { Question } from "../../components/Question/Question";
+import { Answer } from "../../components/Answer/Answer";
+import { MockQuestions } from "../../mock/MockQuestions";
+import { MockAnswers } from "../../mock/MockAnswers";
+import { useViewStore } from "../../state/ViewStore";
 
 export function FC() {
   
