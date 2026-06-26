@@ -5,8 +5,9 @@ const API_URL = "https://bridgebear-api.bk-025.workers.dev";
 export async function getWidgetSetting(
   slug: string
 ): Promise<WidgetSetting> {
+  
   const response = await fetch(
-    `${API_URL}/api/widget-settings/${slug}`
+    `${API_URL}/api/widgetsetting/${slug}`
   );
 
   if (!response.ok) {
