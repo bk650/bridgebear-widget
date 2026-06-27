@@ -1,52 +1,45 @@
 import { useEffect } from "react";
-
 import { ViewEngine } from "./viewengine/ViewEngine";
 import { useViewStore } from "./state/ViewStore";
+import { WidgetSettingStoreProvider, useWidgetSettingStore, } from "./state/WidgetSettingStore";
+import { LawyerStoreProvider, useLawyerStore, } from "./state/LawyerStore";
+import { QuestionStoreProvider, useQuestionStore, } from "./state/QuestionStore";
+import { AnswerStoreProvider, useAnswerStore, } from "./state/AnswerStore";
 
-import {
-  WidgetSettingStoreProvider,
-  useWidgetSettingStore,
-} from "./state/WidgetSettingStore";
-
-import {
-  LawyerStoreProvider,
-  useLawyerStore,
-} from "./state/LawyerStore";
 
 export default function App() {
+  
   return (
     <WidgetSettingStoreProvider>
       <LawyerStoreProvider>
-        <AppContent />
+        <QuestionStoreProvider>
+          <AnswerStoreProvider>
+            <AppContent />
+          </AnswerStoreProvider>
+        </QuestionStoreProvider>
       </LawyerStoreProvider>
     </WidgetSettingStoreProvider>
   );
 }
 
 function AppContent() {
-  const { currentView } =
-    useViewStore();
+  
+  const { currentView } = useViewStore();
 
-  const { widgetSetting,
-    loadWidgetSetting,
-  } =
-    useWidgetSettingStore();
+  const { widgetSetting, loadWidgetSetting,} = useWidgetSettingStore();
 
-  const { loadLawyer } =
-    useLawyerStore();
+  const { loadLawyer } = useLawyerStore();
+
+  const { loadQuestion } = useQuestionStore();
+
+  const { loadAnswer } = useAnswerStore();
 
   useEffect(() => {
-    loadWidgetSetting(
-      "bridgebear"
-    );
-
-    loadLawyer(
-      "bridgebear"
-    );
-  }, [
-    loadWidgetSetting,
-    loadLawyer,
-  ]);
+    loadWidgetSetting("bridgebear");
+    loadLawyer("bridgebear");
+    loadQuestion("bridgebear");
+    loadAnswer("bridgebear");
+  }, [loadWidgetSetting, loadLawyer, loadQuestion, loadAnswer, ]);
 
   if (!widgetSetting) {
     return null;
@@ -64,57 +57,27 @@ function AppContent() {
   const positionStyle =
     isBeforeClick
       ? {
-          position:
-            "fixed" as const,
-
-          right: `${
-            isMobile
-              ? widgetSetting
-                  .MobileOffset_X
-              : widgetSetting
-                  .DesktopOffset_X
-          }px`,
-
-          top: `${
-            isMobile
-              ? widgetSetting
-                  .MobileOffset_Y
-              : widgetSetting
-                  .DesktopOffset_Y
-          }px`,
+        position: "fixed" as const,
+        right: `${isMobile ? widgetSetting.MobileOffset_X : widgetSetting.DesktopOffset_X}px`,
+        top: `${isMobile ? widgetSetting.MobileOffset_Y : widgetSetting.DesktopOffset_Y}px`,
         }
-      : isMobile
-        ? {
-            position:
-              "fixed" as const,
-
-            top: "50%",
-            left: "50%",
-
-            transform:
-              "translate(-50%, -50%)",
-          }
+      : isMobile 
+      ? {
+        position: "fixed" as const, 
+        top: "50%",
+        left: "50%",
+        transform: "translate(-50%, -50%)",
+        }
         : {
-            position:
-              "fixed" as const,
-
-            right: `${
-              widgetSetting
-                .DesktopOffset_X
-            }px`,
-
-            top: `${
-              widgetSetting
-                .DesktopOffset_Y
-            }px`,
+          position: "fixed" as const,
+          right: `${widgetSetting.DesktopOffset_X}px`,
+          top: `${widgetSetting.DesktopOffset_Y}px`,
           };
 
   return (
     <div style={positionStyle}>
       <ViewEngine
-        currentView={
-          currentView
-        }
+        currentView={currentView}
       />
     </div>
   );

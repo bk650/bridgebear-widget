@@ -1,9 +1,9 @@
 export interface WidgetSetting {
   
   // Basic
-  Number: number;
-  Client: string[]; // Airtable linked record ids
-  Slug: string;
+  Number: number; // For Organization Purpose
+  Client: string[]; // Linked Record
+  Slug?: string[]; // Lookup
 
   // Widget Position
   DesktopOffset_X: number;
@@ -13,18 +13,18 @@ export interface WidgetSetting {
 
   // WidgetBubble
   WidgetBubble_Duration: number;
-  BubbleMsg_1: string;
-  BubbleMsg_2?: string;
+  BubbleMsg_1: string; // Text
+  BubbleMsg_2?: string; // Text
 
   // Buttons
-  ButtonText_AC: string;
-  ButtonText_CF: string;
+  ButtonText_AC: string; // Text
+  ButtonText_CF: string; // Text
 
   // Contact Form
-  CF_QuestionText: string;
-  CF_Url: string;
+  CF_QuestionText: string; // Text
+  CF_Url: string; // Text
 
   // Submit Complete
-  SC_Heading: string;
-  SC_Body: string;
+  SC_Heading: string; // Text
+  SC_Body: string; // Text
 }

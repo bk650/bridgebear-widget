@@ -6,10 +6,8 @@ import { ProfileImg } from "../../components/ProfileImg/ProfileImg";
 import { ProfileDescription } from "../../components/ProfileDescription/ProfileDescription";
 import { Comment } from "../../components/Comment/Comment";
 import { Button } from "../../components/Button/Button";
-import { MockQuestions } from "../../mock/MockQuestions";
-import {
-  useLawyerStore,
-} from "../../state/LawyerStore";
+import { useQuestionStore } from "../../state/QuestionStore";
+import { useLawyerStore, } from "../../state/LawyerStore";
 import { useWidgetSettingStore } from "../../state/WidgetSettingStore";
 import { useViewStore } from "../../state/ViewStore";
 
@@ -24,20 +22,29 @@ export function AC() {
     closeWidget,
   } = useViewStore();
 
-  const question = MockQuestions.find(
-    (question) =>
-      question.Type ===
-        scenarioSelector &&
-      question.SB_Order ===
-        currentStep
-  )!;
+  const { questions } =
+  useQuestionStore();
+
+  const question =
+    questions.find(
+      (question) =>
+        question.Type ===
+          scenarioSelector &&
+        question.SB_Order ===
+          String(currentStep)
+    )!;
 
   const { lawyers } =
-  useLawyerStore();
-
+    useLawyerStore();
+  
   const lawyer =
-  lawyers[0];
-
+    lawyers.find(
+      (lawyer) =>
+        lawyer.Assigned_Question_QID?.includes(
+          question?.QID ?? ""
+        )
+    );
+  
   const { widgetSetting } =
     useWidgetSettingStore();
 
@@ -57,22 +64,24 @@ export function AC() {
 
       <div className="ac__question-block">
         <Question
-          text={
-            question.QuestionText
-          }
+          text={question.QuestionText}
       />
 
         <Answer
-          text={
-            selectedAnswerText
-          }
+          text={selectedAnswerText}
           disabled
       />
       </div>
 
       <div className="ac__comment-block">
         <div className="ac__sub-block">
-          <ProfileImg />
+          <ProfileImg
+          imageUrl={
+            lawyer
+              ?.ProfileImg?.[0]
+              ?.url
+          }
+        />
 
           <ProfileDescription
             nameRank={`${lawyer.Name} ${lawyer.Rank}`}

@@ -1,13 +1,6 @@
-import {
-  createContext,
-  useContext,
-  useState,
-  useCallback,
-  type ReactNode,
-} from "react";
-
 import { getLawyer } from "../api/Lawyer";
 import type { Lawyer } from "../types/Lawyer";
+import { createContext, useContext, useState, useCallback, type ReactNode, } from "react";
 
 interface LawyerStoreType {
   lawyers: Lawyer[];
@@ -33,6 +26,7 @@ interface LawyerStoreProviderProps {
 export function LawyerStoreProvider({
   children,
 }: LawyerStoreProviderProps) {
+
   const [lawyers, setLawyers] =
     useState<Lawyer[]>([]);
 

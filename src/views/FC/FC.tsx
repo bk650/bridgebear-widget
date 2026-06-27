@@ -3,10 +3,10 @@ import { Navigation } from "../../components/Navigation/Navigation";
 import { ProfileImg } from "../../components/ProfileImg/ProfileImg";
 import { Question } from "../../components/Question/Question";
 import { Answer } from "../../components/Answer/Answer";
-import { MockQuestions } from "../../mock/MockQuestions";
-import { MockAnswers } from "../../mock/MockAnswers";
 import { useViewStore } from "../../state/ViewStore";
 import { useLawyerStore } from "../../state/LawyerStore";
+import { useQuestionStore } from "../../state/QuestionStore";
+import { useAnswerStore } from "../../state/AnswerStore";
 
 export function FC() {
   
@@ -18,25 +18,20 @@ export function FC() {
     closeWidget,
   } = useViewStore();
 
-  const { lawyers } =
-    useLawyerStore();
+  const { questions } =
+  useQuestionStore();
 
   const question =
-    MockQuestions.find(
-      (question) =>
+    questions.find(
+      question =>
         question.Type === "FC"
-    );
+  )!;
 
-  const lawyer =
-    lawyers.find(
-      (lawyer) =>
-        lawyer.Assigned_Question_QID?.includes(
-          question?.QID ?? ""
-        )
-    );
+  const { answers } =
+    useAnswerStore();
 
-  const answers =
-    MockAnswers
+  const answer =
+    answers
       .filter(
         (answer) =>
           answer.Type === "FC"
@@ -48,28 +43,31 @@ export function FC() {
 
   const answerRows = [];
 
-  for (
-    let i = 0;
-    i < answers.length;
-    i += 2
-  ) {
-    answerRows.push(
-      answers.slice(
-        i,
-        i + 2
-      )
+    for (
+      let i = 0; i < answer.length; i += 2
+    ) 
+    {
+      answerRows.push(
+        answer.slice(i, i + 2)
+      );
+    }
+
+  const { lawyers } =
+    useLawyerStore();
+
+  const lawyer =
+    lawyers.find(
+      (lawyer) =>
+        lawyer.Assigned_Question_QID?.includes(
+          question?.QID ?? ""
+        )
     );
-  }
 
   return (
     <div className="fc">
       <Navigation
-        activeStep={
-          currentStep + 1
-        }
-        onClose={
-          closeWidget
-        }
+        activeStep={currentStep + 1}
+        onClose={closeWidget}
       />
 
       <div className="fc__question-block">

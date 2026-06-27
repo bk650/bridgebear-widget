@@ -1,26 +1,17 @@
 export interface Lawyer {
   
   Name: string;
-
   Rank: string;
-
   Description: string;
-
   ProfileImg: {
     id: string;
     url: string;
     filename: string;
   }[];
-
-  Client: string[]; // Airtable linked record ids
-
-  Slug: string[]; // Airtable lookup field
-
+  Client: string[]; // Linked record
+  Slug: string[]; // Lookup
   Assigned_Widget?: boolean;
-
-  Assigned_Question: string[]; // Airtable linked record ids
-
-  Assigned_Question_QID: string[]; // Airtable Lookup field
-
-  Assigned_Question_Count: number; // Airtable formula field
+  Assigned_Question: string[]; // Linked record
+  Assigned_Question_QID: string[]; // Lookup
+  Assigned_Question_Count: number; // Formula
 }

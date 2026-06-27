@@ -1,6 +1,5 @@
 import "./ProfileImg.css";
-import PlaceholderImg
-  from "../../assets/Lawyer/LawyerPlaceholder.png";
+import PlaceholderImg from "../../assets/Lawyer/LawyerPlaceholder.png";
 
 interface ProfileImgProps {
   imageUrl?: string;
@@ -9,13 +8,11 @@ interface ProfileImgProps {
 export function ProfileImg({
   imageUrl,
 }: ProfileImgProps) {
+  
   return (
     <div className="profile-img">
       <img
-        src={
-          imageUrl ??
-          PlaceholderImg
-        }
+        src={imageUrl ?? PlaceholderImg}
         alt="Lawyer"
       />
     </div>

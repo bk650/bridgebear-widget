@@ -3,9 +3,10 @@ import { Navigation } from "../../components/Navigation/Navigation";
 import { ProfileImg } from "../../components/ProfileImg/ProfileImg";
 import { Question } from "../../components/Question/Question";
 import { Answer } from "../../components/Answer/Answer";
-import { MockQuestions } from "../../mock/MockQuestions";
-import { MockAnswers } from "../../mock/MockAnswers";
 import { useViewStore } from "../../state/ViewStore";
+import { useLawyerStore } from "../../state/LawyerStore";
+import { useQuestionStore } from "../../state/QuestionStore";
+import { useAnswerStore } from "../../state/AnswerStore";
 
 export function QC() {
  
@@ -17,31 +18,53 @@ const {
   closeWidget,
 } = useViewStore();
 
+const { questions } =
+  useQuestionStore();
+
 const question =
   currentStep === 4
-    ? MockQuestions.find(
-      (question) => 
-          question.Type === "EC"
+    ? questions.find(
+        (question) =>
+          question.Type ===
+            "EC"
       )!
-      : MockQuestions.find(
-        (questions) => 
-          questions.Type ===
+    : questions.find(
+        (question) =>
+          question.Type ===
             scenarioSelector &&
-          questions.SB_Order ===
-            currentStep
-        )!;
+          question.SB_Order ===
+            String(currentStep)
+      )!;
   
-  const answers = MockAnswers
-  .filter(
-    (answer) =>
-      answer.QID ===
-      question.QID
-  )
-  .sort(
-    (a, b) =>
-      a.Order - b.Order
-  );
+  const { answers } =
+      useAnswerStore();
+  
+  const answer =
+    answers
+      .filter(
+        (answer) =>
+          answer
+            .QID_Value
+              ?.includes(
+              question.QID
+              )
+        )
+      .sort(
+        (a, b) =>
+          a.Order - b.Order
+      );
 
+  const { lawyers } =
+    useLawyerStore();
+  
+  const lawyer =
+    lawyers.find(
+      (lawyer) =>
+        lawyer.Assigned_Question_QID?.includes(
+          question?.QID ?? ""
+        )
+    );
+  
   return (
     <div className="qc">
       <Navigation 
@@ -50,7 +73,13 @@ const question =
       />
 
       <div className="qc__question-block">
-        <ProfileImg />
+        <ProfileImg
+          imageUrl={
+            lawyer
+              ?.ProfileImg?.[0]
+              ?.url
+          }
+        />
 
         <Question
           text={question.QuestionText}
@@ -58,7 +87,7 @@ const question =
       </div>
 
       <div className="qc__answer-block">
-        {answers.map((answer) => (
+        {answer.map((answer) => (
           <Answer
             key={`${answer.QID}-${answer.Order}`}
             text={answer.AnswerText}
