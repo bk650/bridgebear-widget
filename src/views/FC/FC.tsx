@@ -4,9 +4,11 @@ import { ProfileImg } from "../../components/ProfileImg/ProfileImg";
 import { Question } from "../../components/Question/Question";
 import { Answer } from "../../components/Answer/Answer";
 import { useViewStore } from "../../state/ViewStore";
+import { useWidgetSettingStore, } from "../../state/WidgetSettingStore";
 import { useLawyerStore } from "../../state/LawyerStore";
 import { useQuestionStore } from "../../state/QuestionStore";
 import { useAnswerStore } from "../../state/AnswerStore";
+import { useSession } from "../../state/SessionStore";
 
 export function FC() {
   
@@ -18,6 +20,12 @@ export function FC() {
     closeWidget,
   } = useViewStore();
 
+  const { setSession } =
+  useSession();
+
+  const { widgetSetting } =
+  useWidgetSettingStore();
+  
   const { questions } =
   useQuestionStore();
 
@@ -62,7 +70,7 @@ export function FC() {
           question?.QID ?? ""
         )
     );
-
+    
   return (
     <div className="fc">
       <Navigation
@@ -104,12 +112,21 @@ export function FC() {
                 ) => (
                   <Answer
                     key={`${answer.QID}-${answer.Order}`}
-                    text={
-                      answer.AnswerText
+                    text={answer.AnswerText}  
+                    disabled={
+                      widgetSetting?.Slug?.[0] ==="bridgebear" &&
+                        answer.AnswerText !=="가사 · 이혼"
                     }
-                    onClick={() => {
-                      setScenarioSelector(
-                        answer.ScenarioSelector
+                    onClick={() => {                  
+                      
+                      setSession((prev) => ({
+                        ...prev,
+                          FC_Question: question.QuestionText,
+                          FC_Answer: answer.AnswerText,
+                        }));
+                        
+                        setScenarioSelector(
+                        answer.ScenarioSelector!
                       );
 
                       setCurrentStep(

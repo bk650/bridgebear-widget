@@ -7,6 +7,7 @@ import { useViewStore } from "../../state/ViewStore";
 import { useLawyerStore } from "../../state/LawyerStore";
 import { useQuestionStore } from "../../state/QuestionStore";
 import { useAnswerStore } from "../../state/AnswerStore";
+import { useSession } from "../../state/SessionStore";
 
 export function QC() {
  
@@ -17,6 +18,9 @@ const {
   setSelectedAnswerText,
   closeWidget,
 } = useViewStore();
+
+const { setSession } =
+  useSession();
 
 const { questions } =
   useQuestionStore();
@@ -92,6 +96,44 @@ const question =
             key={`${answer.QID}-${answer.Order}`}
             text={answer.AnswerText}
             onClick={() => {
+              
+              setSession((prev) => {
+
+                if (currentStep === 1) {
+                  return {
+                    ...prev,
+                    SB1_Question: question.QuestionText,
+                    SB1_Answer: answer.AnswerText,
+                  };
+                }
+
+                if (currentStep === 2) {
+                  return {
+                    ...prev,
+                    SB2_Question: question.QuestionText,
+                    SB2_Answer: answer.AnswerText,
+                  };
+                }
+
+                if (currentStep === 3) {
+                  return {
+                    ...prev,
+                    SB3_Question: question.QuestionText,
+                    SB3_Answer: answer.AnswerText,
+                  };
+                }
+
+                if (currentStep === 4) {
+                  return {
+                    ...prev,
+                    EC_Question: question.QuestionText,
+                    EC_Answer: answer.AnswerText,
+                  };
+                }
+
+                return prev;
+              });
+
               setSelectedAnswerText(
                 answer.AnswerText
               );

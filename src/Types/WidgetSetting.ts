@@ -1,30 +1,26 @@
+/*
+Text / Number / Single Select → Required by default
+Linked Record → Always ?: Type[]
+Lookup → Always ?: Type[]
+Optional fields → Use ?
+*/
+
 export interface WidgetSetting {
-  
-  // Basic
+
   Number: number; // For Organization Purpose
-  Client: string[]; // Linked Record
+  Client?: string[]; // Linked Record
   Slug?: string[]; // Lookup
-
-  // Widget Position
-  DesktopOffset_X: number;
-  DesktopOffset_Y: number;
-  MobileOffset_X: number;
-  MobileOffset_Y: number;
-
-  // WidgetBubble
-  WidgetBubble_Duration: number;
+  DesktopOffset_X: number; // Number
+  DesktopOffset_Y: number; // Number
+  MobileOffset_X: number; // Number
+  MobileOffset_Y: number; // Number
+  WidgetBubble_Duration: number; // Number
   BubbleMsg_1: string; // Text
   BubbleMsg_2?: string; // Text
-
-  // Buttons
   ButtonText_AC: string; // Text
   ButtonText_CF: string; // Text
-
-  // Contact Form
   CF_QuestionText: string; // Text
   CF_Url: string; // Text
-
-  // Submit Complete
   SC_Heading: string; // Text
   SC_Body: string; // Text
 }

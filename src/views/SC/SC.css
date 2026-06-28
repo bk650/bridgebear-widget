@@ -7,7 +7,7 @@
   justify-content: center;
   gap: 20px;
   padding: 0px 20px; 
-  background: var(--C_White);
+  background: var(--C_PureWhite);
   border: var(--Border_NG);
   border-radius: var(--R_L);
   box-shadow: var(--Shadow_L);

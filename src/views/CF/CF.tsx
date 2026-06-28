@@ -6,6 +6,7 @@ import { Checkbox } from "../../components/Checkbox/Checkbox";
 import { Button } from "../../components/Button/Button";
 import { useWidgetSettingStore } from "../../state/WidgetSettingStore";
 import { useViewStore } from "../../state/ViewStore";
+import { useSession } from "../../state/SessionStore";
 
 export function CF() {
   
@@ -51,6 +52,9 @@ export function CF() {
 
   const { setCurrentView } =
   useViewStore();
+
+  const { setSession } = 
+  useSession();
 
   const isButtonEnabled =
     name.trim() !== "" &&
@@ -115,7 +119,11 @@ export function CF() {
         <span className="cf__check-text t-body">
           개인정보 수집 및 이용 동의 (
           <a
-            href="#"
+            href={
+            widgetSetting.CF_Url
+            }
+            target="_blank"
+            rel="noopener noreferrer"
             className="cf__policy-link"
           >
             개인정보처리방침
@@ -125,13 +133,18 @@ export function CF() {
       </div>
 
       <Button
-        text={
-          widgetSetting.ButtonText_CF
-        }
+        text={widgetSetting.ButtonText_CF}
         disabled={!isButtonEnabled}
-        onClick={() =>
-          setCurrentView("SC")
-        }
+        onClick={() => {
+          setSession((prev) => ({
+            ...prev,
+            Name: name,
+            Phone: phone.replace(/\D/g, ""),
+            Email: email,
+          }));
+
+          setCurrentView("SC");
+        }}
       />
     </div>
   );

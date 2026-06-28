@@ -1,0 +1,107 @@
+import { createContext, useContext, useState, } from "react";
+import type { Dispatch, ReactNode, SetStateAction, } from "react";
+
+/*
+Text / Number / Single Select → Required by default
+Linked Record → Always ?: Type[]
+Lookup → Always ?: Type[]
+Optional fields → Use ?
+*/
+
+export interface Session {
+
+  TrackingID: string; // Formula
+  Client?: string[]; // Linked Record
+  Slug?: string[]; // Lookup
+  Date: string; // Date
+  Name: string; // Text
+  Phone: string; // Phone
+  Email: string; // Email
+  FC_Question: string; // Text
+  FC_Answer: string; // Text
+  SB1_Question: string; // Text
+  SB1_Answer: string; // Text
+  SB2_Question: string; // Text
+  SB2_Answer: string; // Text
+  SB3_Question: string; // Text
+  SB3_Answer: string; // Text
+  EC_Question: string; // Text
+  EC_Answer: string; // Text
+  LandingPath: string; // Text
+  ReferralSource: string; // Text
+}
+
+/*
+Optional Airtable fields
+are never initialized in default state.
+*/
+
+export const InitialSession: Session = {
+
+  TrackingID: "",
+  Date: "",
+  Name: "",
+  Phone: "",
+  Email: "",
+  FC_Question: "",
+  FC_Answer: "",
+  SB1_Question: "",
+  SB1_Answer: "",
+  SB2_Question: "",
+  SB2_Answer: "",
+  SB3_Question: "",
+  SB3_Answer: "",
+  EC_Question: "",
+  EC_Answer: "",
+  LandingPath: "",
+  ReferralSource: "",
+};
+
+interface SessionContextType {
+
+  session: Session;
+    setSession: Dispatch<
+        SetStateAction<Session>
+    >;
+}
+
+const SessionContext = 
+    createContext<
+        SessionContextType 
+            | undefined
+    >(undefined);
+
+export const SessionProvider = ({
+  children,
+}: {
+  children: ReactNode;
+}) => {
+
+  const [session, setSession] =
+    useState<Session>(InitialSession);
+
+  return (
+    <SessionContext.Provider
+      value={{
+        session,
+        setSession,
+      }}
+    >
+      {children}
+    </SessionContext.Provider>
+  );
+};
+
+export const useSession = () => {
+
+  const context =
+    useContext(SessionContext);
+
+  if (!context) {
+    throw new Error(
+      "useSession must be used within SessionProvider"
+    );
+  }
+
+  return context;
+};
