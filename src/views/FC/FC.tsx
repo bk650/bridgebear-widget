@@ -20,8 +20,13 @@ export function FC() {
     closeWidget,
   } = useViewStore();
 
-  const { setSession } =
+  const { setSession , resetSession } =
   useSession();
+
+  const handleCloseWidget = () => {
+  closeWidget();
+  resetSession();
+  };
 
   const { widgetSetting } =
   useWidgetSettingStore();
@@ -75,7 +80,7 @@ export function FC() {
     <div className="fc">
       <Navigation
         activeStep={currentStep + 1}
-        onClose={closeWidget}
+        onClose={handleCloseWidget}
       />
 
       <div className="fc__question-block">

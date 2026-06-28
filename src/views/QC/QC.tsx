@@ -19,8 +19,13 @@ const {
   closeWidget,
 } = useViewStore();
 
-const { setSession } =
+const { setSession , resetSession } =
   useSession();
+
+const handleCloseWidget = () => {
+  closeWidget();
+  resetSession();
+  };
 
 const { questions } =
   useQuestionStore();
@@ -73,7 +78,7 @@ const question =
     <div className="qc">
       <Navigation 
         activeStep={currentStep + 1}
-        onClose={closeWidget}
+        onClose={handleCloseWidget}
       />
 
       <div className="qc__question-block">

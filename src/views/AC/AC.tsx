@@ -10,6 +10,7 @@ import { useQuestionStore } from "../../state/QuestionStore";
 import { useLawyerStore, } from "../../state/LawyerStore";
 import { useWidgetSettingStore } from "../../state/WidgetSettingStore";
 import { useViewStore } from "../../state/ViewStore";
+import { useSession } from "../../state/SessionStore";
 
 export function AC() {
   
@@ -21,6 +22,14 @@ export function AC() {
     setCurrentView,
     closeWidget,
   } = useViewStore();
+
+  const { resetSession } =
+    useSession();
+
+  const handleCloseWidget = () => {
+  closeWidget();
+  resetSession();
+  };
 
   const { questions } =
   useQuestionStore();
@@ -59,7 +68,7 @@ export function AC() {
     <div className="ac">
       <Navigation 
         activeStep={currentStep + 1}
-        onClose={closeWidget}
+        onClose={handleCloseWidget}
       />
 
       <div className="ac__question-block">

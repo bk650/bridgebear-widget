@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { getSlug } from "./utils/Slug";
 import { ViewEngine } from "./viewengine/ViewEngine";
 import { ViewStoreProvider , useViewStore } from "./state/ViewStore";
 import { WidgetSettingStoreProvider, useWidgetSettingStore, } from "./state/WidgetSettingStore";
@@ -7,8 +8,6 @@ import { QuestionStoreProvider, useQuestionStore, } from "./state/QuestionStore"
 import { AnswerStoreProvider, useAnswerStore, } from "./state/AnswerStore";
 import { SessionProvider } from "./state/SessionStore";
 import { useSession } from "./state/SessionStore";
-import { getVisitorId } from "./utils/Visitor";
-import { getReferralSource } from "./utils/Referral";
 
 export default function App() {
   
@@ -31,12 +30,12 @@ export default function App() {
 
 function AppContent() {
   
+  const slug = getSlug();
   const { currentView } = useViewStore();
   const { widgetSetting, loadWidgetSetting,} = useWidgetSettingStore();
   const { loadLawyer } = useLawyerStore();
   const { loadQuestion } = useQuestionStore();
   const { loadAnswer } = useAnswerStore();
-  const { setSession } = useSession();
   const { session } = useSession();
 
   useEffect(() => {
@@ -44,23 +43,10 @@ function AppContent() {
     }, [session]);
 
   useEffect(() => {
-    setSession((prev) => ({
-      ...prev,
-      TrackingID: getVisitorId(),
-      Date:
-        new Date()
-          .toISOString()
-          .split("T")[0],
-      LandingPath: window.location.href,
-      ReferralSource: getReferralSource(),
-    }));
-  }, [setSession]);
-
-  useEffect(() => {
-    loadWidgetSetting("bridgebear");
-    loadLawyer("bridgebear");
-    loadQuestion("bridgebear");
-    loadAnswer("bridgebear");
+    loadWidgetSetting(slug);
+    loadLawyer(slug);
+    loadQuestion(slug);
+    loadAnswer(slug);
   }, [loadWidgetSetting, loadLawyer, loadQuestion, loadAnswer, ]);
 
   if (!widgetSetting) {
